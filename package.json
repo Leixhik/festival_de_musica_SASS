@@ -17,14 +17,15 @@
   },
   "license": "ISC",
   "author": "Rodolfo Leija @leixhik",
-  "type": "modules",
+  "type": "module",
   "main": "index.js",
   "scripts": {
     "sass": "sass --watch src/scss:build/css",
-    "hola": "gulp hola"
+    "css": "gulp css"
   },
   "devDependencies": {
     "gulp": "^5.0.0",
+    "gulp-sass": "^6.0.1",
     "sass": "^1.87.0"
   }
 }
