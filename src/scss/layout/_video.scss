@@ -1,0 +1,31 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+@use 'sass:color';
+
+.video{
+    position: relative;
+    .overlay{
+        position: absolute;
+        background: linear-gradient(
+            270deg,
+            rgba(v.$morado, 60%),
+            rgba( color.adjust(v.$morado, $lightness:-20%), 90% ) /* Código diferente a Udemy. */
+        );
+        inset: 0; // Esto es igual a 0, 0, 0, 0 en los márgenes.
+    }
+
+    video {
+
+    }
+}
+
+.contenido-video {
+
+    h2 {
+
+    }
+    
+    p {
+        
+    }
+}
