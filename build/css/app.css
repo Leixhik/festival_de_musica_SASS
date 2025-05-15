@@ -716,3 +716,13 @@ body > section {
 .pase-footer p:hover {
   background-color: rgb(169.0909090909, 94.8484848485, 205.1515151515);
 }
+
+.footer {
+  background-color: #F53756;
+  padding: 2rem 0;
+}
+.footer p {
+  margin: 0;
+  color: #FFFFFF;
+  text-align: center;
+}
