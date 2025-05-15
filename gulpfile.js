@@ -9,10 +9,10 @@ import gulpSass from "gulp-sass";
 const sass = gulpSass(dartSass);
 
 export function css(done){
-    src('src/scss/app.scss') // src('src/scss/app.scss') es la ruta de entrada del archivo SCSS que se va a compilar. Este archivo puede contener estilos y reglas CSS escritas en Sass.
+    src('src/scss/app.scss', {sourcemaps: true}) // src('src/scss/app.scss') es la ruta de entrada del archivo SCSS que se va a compilar. Este archivo puede contener estilos y reglas CSS escritas en Sass.
 
         .pipe(sass().on('error', sass.logError) )
-        .pipe(dest('build/css'))
+        .pipe(dest('build/css', { sourcemaps: '.' }))
 
     done();
 }
