@@ -4,25 +4,35 @@
 .header {
     background-color: v.$verde;
 
-    @include m.telefono{
+    @include m.tablet {
+        &.fixed {
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 100%;
+            box-shadow: .1rem .2rem .3rem #333;
+        }
+    }
+
+    @include m.telefono {
         color: white;
         width: 100%;
         height: auto;
     }
 
-    @include m.tablet{
+    @include m.tablet {
         color: white;
         width: 100%;
         height: auto;
     }
 
-    @include m.desktop{
+    @include m.desktop {
         color: white;
         width: 100%;
         height: auto;
     }
 
-    @include m.desktopXL{
+    @include m.desktopXL {
         color: white;
         width: 100%;
         height: auto;
@@ -30,15 +40,18 @@
 
     .contenido-header {
         padding: 2rem;
-        @include m.tablet{
+
+        @include m.tablet {
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
+
         h1 {
             color: v.$blanco;
             text-align: center;
-            @include m.tablet{
+
+            @include m.tablet {
                 text-align: left;
                 margin: 0;
             }
@@ -51,9 +64,11 @@
     flex-direction: column;
     align-items: center;
     gap: 2rem;
-    @include m.tablet{
+
+    @include m.tablet {
         flex-direction: row;
     }
+
     a {
         color: v.$blanco;
         font-size: 2.4rem;
