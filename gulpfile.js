@@ -8,9 +8,12 @@ import gulpSass from "gulp-sass";
 
 const sass = gulpSass(dartSass);
 
+import terser from 'gulp-terser'
+
 export function js( done){
 
     src('src/js/app.js')
+        .pipe(terser())
         .pipe( dest('build/js') )
 
     done()
@@ -19,7 +22,9 @@ export function js( done){
 export function css(done){
     src('src/scss/app.scss', {sourcemaps: true}) // src('src/scss/app.scss') es la ruta de entrada del archivo SCSS que se va a compilar. Este archivo puede contener estilos y reglas CSS escritas en Sass.
 
-        .pipe(sass().on('error', sass.logError) )
+        .pipe(sass({
+            style: 'compressed'
+        }).on('error', sass.logError) )
         .pipe(dest('build/css', { sourcemaps: '.' }))
 
     done();
