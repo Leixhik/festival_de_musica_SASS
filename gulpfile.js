@@ -1,5 +1,6 @@
 import path from 'path'
 import fs from 'fs'
+import { glob } from 'glob'
 import {src, dest, watch, series} from 'gulp'; // src y dest son funciones de gulp que permiten definir tareas para procesar archivos. src se utiliza para especificar la ubicación de los archivos de origen, mientras que dest se utiliza para definir la ubicación de salida donde se guardarán los archivos procesados.
 import * as dartSass from 'sass'; // Dart Sass es una implementación de Sass escrita en Dart. Es la versión recomendada de Sass y es compatible con todas las características del lenguaje Sass. Dart Sass se utiliza para compilar archivos SCSS o Sass a CSS.
 import gulpSass from "gulp-sass";
@@ -59,10 +60,38 @@ export async function crop(done) {
     }
 }
 
+export async function imagenes(done) {
+    const srcDir = './src/img';
+    const buildDir = './build/img';
+    const images =  await glob('./src/img/**/*{jpg,png}')
+
+    images.forEach(file => {
+        const relativePath = path.relative(srcDir, path.dirname(file));
+        const outputSubDir = path.join(buildDir, relativePath);
+        procesarImagenes(file, outputSubDir);
+    });
+    done();
+}
+
+function procesarImagenes(file, outputSubDir) {
+    if (!fs.existsSync(outputSubDir)) {
+        fs.mkdirSync(outputSubDir, { recursive: true })
+    }
+    const baseName = path.basename(file, path.extname(file))
+    const extName = path.extname(file)
+    const outputFile = path.join(outputSubDir, `${baseName}${extName}`)
+    const outputFileWebp = path.join(outputSubDir, `${baseName}.webp`)
+
+    const options = { quality: 80 }
+    sharp(file).jpeg(options).toFile(outputFile)
+    sharp(file).webp(options).toFile(outputFileWebp)
+}
+
 export function dev(){
     watch('src/scss/**/*.scss', css);/* La línea observa cambios en el archivo app.scss y ejecuta la tarea css cuando detecta modificaciones */
     watch('src/js/**/*.js', js);
+    watch('src/img/**/*.{png,jpg}', imagenes);
     
 }
 
-export default series( crop, js, css, dev)
+export default series(imagenes, crop, js, css,  dev) // La de dev va hasta el final porque es la que esta escuchando los cambios.
