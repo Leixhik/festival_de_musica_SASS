@@ -67,55 +67,69 @@ Aquí tienes una lista de ejercicios diseñados para ayudarte a practicar tus co
 ¡Espero que estos ejercicios te sean de utilidad! Recuerda consultar la documentación y experimentar. 
 
 ## Qué me es permitido y qué no en esta actividad (Gemini 2.5 pro):
-¡Excelente pregunta! Más que "reglas estrictas", te daré algunas pautas y buenas prácticas que te ayudarán a sacar el máximo provecho de estos ejercicios y a consolidar tu aprendizaje. El objetivo es que no solo completes las tareas, sino que entiendas profundamente los conceptos y cómo aplicarlos de manera efectiva.
-Pautas Generales para Aprender de Verdad:
-Entiende el "Porqué": No te limites a copiar y pegar código o a hacer que algo funcione sin más. Pregúntate:
-¿Por qué esta solución funciona?
-¿Qué alternativas existen y por qué esta es (o no es) la mejor en este contexto?
-¿Cómo afecta este cambio al resto del proyecto?
-Experimenta y "Rómpe" Cosas (Controladamente):
-No tengas miedo de probar variaciones de los ejercicios. ¿Qué pasa si cambias un valor? ¿Si usas un selector diferente?
-Usa control de versiones (Git): Antes de hacer cambios grandes o experimentar, haz un commit. Si algo sale mal, puedes revertir fácilmente. Esto te dará la libertad de explorar sin temor a perder tu trabajo.
-Consulta la Documentación:
-Si un ejercicio te pide usar una nueva propiedad de SASS, una función de JavaScript o una tarea de Gulp, busca la documentación oficial. Entenderás mejor sus capacidades y limitaciones.
-MDN Web Docs para HTML, CSS y JavaScript es un recurso invaluable.
-La documentación de SASS y Gulp también es muy completa.
-Cambios Incrementales y Pruebas Constantes:
-Realiza cambios pequeños y prueba con frecuencia. Es más fácil depurar un pequeño cambio que muchos a la vez.
-Usa las herramientas de desarrollador de tu navegador (inspeccionar elemento, consola, etc.) constantemente.
-Código Limpio y Organizado:
-Intenta que tu código sea legible y mantenible. Esto incluye:
-Nombres de variables y funciones descriptivos.
-Indentación consistente.
-Comentarios para las partes complejas o no obvias (evita comentar lo obvio).
-Pautas Específicas para los Ejercicios:
-SASS (.scss files):
-Variables (_variables.scss): Úsalas para todo lo que se pueda repetir o que quieras cambiar fácilmente más tarde (colores, fuentes, espaciados, breakpoints).
-Mixins (_mixins.scss):
-Son geniales para reutilizar grupos de declaraciones CSS. Piensa en ellos como funciones para tus estilos.
-Usa parámetros en los mixins para hacerlos más flexibles.
-Nesting (Anidación):
-Es útil para reflejar la estructura HTML y mantener el código organizado, pero evita anidar demasiado (más de 3-4 niveles puede generar selectores muy específicos y difíciles de sobrescribir).
-@extend:
-Úsalo con precaución. Es bueno para compartir un conjunto de propiedades semánticamente relacionadas entre selectores. Un mal uso puede inflar tu CSS o crear relaciones no deseadas. A menudo, un mixin es una alternativa más segura.
-Modularización:
-Dividir tu SCSS en archivos pequeños y específicos (como en layout/ y base/) es una excelente práctica. Facilita la navegación y el mantenimiento.
-JavaScript (app.js):
-Legibilidad: Escribe funciones pequeñas y con un propósito claro.
-Eficiencia del DOM:
-Evita seleccionar el mismo elemento del DOM múltiples veces dentro de una función si puedes guardarlo en una variable.
-Considera la delegación de eventos para manejar eventos en múltiples elementos de manera eficiente.
-No Repetir Código (DRY - Don't Repeat Yourself): Si tienes bloques de código similares, piensa en cómo podrías crear una función reutilizable.
-Gulp (gulpfile.js):
-Entiende las Tareas: Asegúrate de comprender qué hace cada tarea en tu gulpfile.js.
-Instalación de Paquetes: Cuando instales un nuevo paquete NPM, entiende para qué sirve y cómo se integra en tu flujo de trabajo de Gulp.
-HTML (index.html):
-Semántica: Usa etiquetas HTML semánticas (<header>, <footer>, <nav>, <article>, <section>, etc.) para dar estructura y significado a tu contenido.
-Accesibilidad (a11y): Considera la accesibilidad. Por ejemplo, añade texto alt descriptivo a las imágenes.
-Lo que "No es Válido" (o menos recomendable para aprender):
-Modificar directamente los archivos en la carpeta build/: Estos archivos son generados por Gulp. Tus cambios se perderán la próxima vez que ejecutes las tareas. Trabaja siempre en la carpeta src/.
-Ignorar los errores de la consola (JavaScript o Gulp): Los mensajes de error te dan pistas cruciales sobre qué está mal.
-Hacer cambios muy grandes sin probar: Es más difícil encontrar el origen de un problema.
-No entender el código que escribes o copias: El objetivo es aprender, no solo hacer que funcione.
-En resumen: sé curioso, sé metódico, prueba constantemente y enfócate en entender los principios detrás de cada tarea. ¡Estos ejercicios son una excelente oportunidad para solidificar tus conocimientos!
-Si te atascas en algún ejercicio específico o tienes más preguntas sobre alguna de estas pautas, no dudes en preguntar.
+
+Más que "reglas estrictas", aquí tienes algunas pautas y buenas prácticas que te ayudarán a sacar el máximo provecho de estos ejercicios y a consolidar tu aprendizaje. El objetivo es que no solo completes las tareas, sino que entiendas profundamente los conceptos y cómo aplicarlos de manera efectiva.
+
+**Pautas Generales:**
+
+1.  **Entiende el "Porqué":** No te limites a copiar y pegar código o a hacer que algo funcione sin más. Pregúntate:
+    *   *¿Por qué esta solución funciona?*
+    *   *¿Qué alternativas existen y por qué esta es (o no es) la mejor en este contexto?*
+    *   *¿Cómo afecta este cambio al resto del proyecto?*
+
+2.  **Experimenta y "Rompe" Cosas (Controladamente):**
+    *   No tengas miedo de probar variaciones de los ejercicios. ¿Qué pasa si cambias un valor? ¿Si usas un selector diferente?
+    *   **Usa control de versiones (Git):** Antes de hacer cambios grandes o experimentar, haz un `commit`. Si algo sale mal, puedes revertir fácilmente. Esto te dará la libertad de explorar sin temor a perder tu trabajo.
+
+3.  **Consulta la Documentación:**
+    *   Si un ejercicio te pide usar una nueva propiedad de SASS, una función de JavaScript o una tarea de Gulp, busca la documentación oficial. Entenderás mejor sus capacidades y limitaciones.
+    *   MDN Web Docs para HTML, CSS y JavaScript es un recurso invaluable.
+    *   La documentación de SASS y Gulp también es muy completa.
+
+4.  **Cambios Incrementales y Pruebas Constantes:**
+    *   Realiza cambios pequeños y prueba con frecuencia. Es más fácil depurar un pequeño cambio que muchos a la vez.
+    *   Usa las herramientas de desarrollador de tu navegador (inspeccionar elemento, consola, etc.) constantemente.
+
+5.  **Código Limpio y Organizado:**
+    *   Intenta que tu código sea legible y mantenible. Esto incluye:
+        *   Nombres de variables y funciones descriptivos.
+        *   Indentación consistente.
+        *   Comentarios para las partes complejas o no obvias (evita comentar lo obvio).
+
+**Pautas Específicas para los Ejercicios:**
+
+*   **SASS (`.scss` files):**
+    *   **Variables (`_variables.scss`):** Úsalas para todo lo que se pueda repetir o que quieras cambiar fácilmente más tarde (colores, fuentes, espaciados, breakpoints).
+    *   **Mixins (`_mixins.scss`):**
+        *   Son geniales para reutilizar grupos de declaraciones CSS. Piensa en ellos como funciones para tus estilos.
+        *   Usa parámetros en los mixins para hacerlos más flexibles.
+    *   **Nesting (Anidación):**
+        *   Es útil para reflejar la estructura HTML y mantener el código organizado, pero evita anidar demasiado (más de 3-4 niveles puede generar selectores muy específicos y difíciles de sobrescribir).
+    *   **`@extend`:**
+        *   Úsalo con precaución. Es bueno para compartir un conjunto de propiedades *semánticamente relacionadas* entre selectores. Un mal uso puede inflar tu CSS o crear relaciones no deseadas. A menudo, un mixin es una alternativa más segura.
+    *   **Modularización:**
+        *   Dividir tu SCSS en archivos pequeños y específicos (como en `layout/` y `base/`) es una excelente práctica. Facilita la navegación y el mantenimiento.
+
+*   **JavaScript (`app.js`):**
+    *   **Legibilidad:** Escribe funciones pequeñas y con un propósito claro.
+    *   **Eficiencia del DOM:**
+        *   Evita seleccionar el mismo elemento del DOM múltiples veces dentro de una función si puedes guardarlo en una variable.
+        *   Considera la delegación de eventos para manejar eventos en múltiples elementos de manera eficiente.
+    *   **No Repetir Código (DRY - Don't Repeat Yourself):** Si tienes bloques de código similares, piensa en cómo podrías crear una función reutilizable.
+
+*   **Gulp (`gulpfile.js`):**
+    *   **Entiende las Tareas:** Asegúrate de comprender qué hace cada tarea en tu `gulpfile.js`.
+    *   **Instalación de Paquetes:** Cuando instales un nuevo paquete NPM, entiende para qué sirve y cómo se integra en tu flujo de trabajo de Gulp.
+
+*   **HTML (`index.html`):**
+    *   **Semántica:** Usa etiquetas HTML semánticas (`<header>`, `<footer>`, `<nav>`, `<article>`, `<section>`, etc.) para dar estructura y significado a tu contenido.
+    *   **Accesibilidad (a11y):** Considera la accesibilidad. Por ejemplo, añade texto `alt` descriptivo a las imágenes.
+
+**Lo que "No es Válido" (o menos recomendable para aprender):**
+
+*   **Modificar directamente los archivos en la carpeta `build/`:** Estos archivos son generados por Gulp. Tus cambios se perderán la próxima vez que ejecutes las tareas. Trabaja siempre en la carpeta `src/`.
+*   **Ignorar los errores de la consola (JavaScript o Gulp):** Los mensajes de error te dan pistas cruciales sobre qué está mal.
+*   **Hacer cambios muy grandes sin probar:** Es más difícil encontrar el origen de un problema.
+*   **No entender el código que escribes o copias:** El objetivo es aprender, no solo hacer que funcione.
+
+En resumen: **sé curioso, sé metódico, prueba constantemente y enfócate en entender los principios detrás de cada tarea.**
