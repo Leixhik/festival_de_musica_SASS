@@ -43,6 +43,7 @@
     li {
         padding: 2.5rem;
         font-weight: 700;
+        text-align: center;
 
         span {
             font-weight: 400;
@@ -51,7 +52,7 @@
 }
 
 .bg-amarillo {
-    background-color: v.$amarillo;
+    background-color: v.$selectiveYellow;
     li:nth-child(odd) {
     
     background-color: color.adjust(v.$amarillo, $lightness: 5%)
@@ -60,7 +61,7 @@
 }
 
 .bg-verde{
-    background-color: v.$verde;
+    background-color: v.$blueGreen;
     li:nth-child(odd) {
     
     background-color: color.adjust(v.$verde, $lightness: 5%)
