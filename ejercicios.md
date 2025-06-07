@@ -5,8 +5,8 @@ Aquí tienes una lista de ejercicios diseñados para ayudarte a practicar tus co
 ## Ejercicios de SASS
 
 1.  **Nuevas Variables de Color:**
-    *   Define al menos tres nuevas variables de color en `_variables.scss`.
-    *   Aplica estas nuevas variables a diferentes elementos del sitio (por ejemplo, cambia el color de fondo de una sección, el color del texto de los encabezados o el color de los bordes de los botones).
+    ✓   Define al menos tres nuevas variables de color en `_variables.scss`.
+    ✓   Aplica estas nuevas variables a diferentes elementos del sitio (por ejemplo, cambia el color de fondo de una sección, el color del texto de los encabezados o el color de los bordes de los botones).
 
 2.  **Crear un Nuevo Mixin:**
     *   Crea un mixin en `_mixins.scss` para un estilo de botón reutilizable (por ejemplo, con padding, border-radius, y un efecto hover).
